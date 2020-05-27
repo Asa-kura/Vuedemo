@@ -5,7 +5,7 @@ module.exports = {
     // 入口
     entry: {
         main: './src/main',
-        vendors: ['vue', 'vue-router', 'axios', 'echarts']
+        vendors: ['vue', 'vue-router', 'axios']
     },
     // 输出
     output: {

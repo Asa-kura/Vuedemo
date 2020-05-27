@@ -12,16 +12,16 @@ config.output.chunkFilename = '[name].chunk.js'; // 路由js命名
 config.vue = {
     loaders: {
         css: ExtractTextPlugin.extract(
-            'style-loader',
-            'css-loader?sourceMap', {
-            publicPath: '/dist/'
-        }
+            "style-loader",
+            "css-loader?sourceMap", {
+                publicPath: "/dist/"
+            }
         )
     }
 };
 
 config.plugins = (config.plugins || []).concat([
-    new ExtractTextPlugin('[name].css', {
+    new ExtractTextPlugin("[name].css", {
         allChunks: true,
         resolve: ['modules']
     }), // 提取CSS
@@ -34,10 +34,9 @@ config.plugins = (config.plugins || []).concat([
 ]);
 
 // 写入环境变量
-fs.open('./src/config/env.js', 'w', function (err, fd) {
+fs.open('./src/config/env.js', 'w', function(err, fd) {
     var buf = 'export default "development";';
-    // fs.write(fd, buf, 0, buf.length, 0, function (err, written, buffer) { });
-    fs.write(fd, buf, 0, 'utf-8', function (err, written, buffer) { });
+    fs.write(fd, buf, 0, buf.length, 0, function(err, written, buffer) {});
 });
 
 module.exports = config;
